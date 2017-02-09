@@ -1,0 +1,14 @@
+<h1>Todo List</h1>
+<div class ="todosContainer">
+	<input class ="newTodo" placeholder="What need to be done?" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()" autofocus>
+
+	<section class ="todosBody">
+		<div class ="todosList">
+			<section *ngFor="let todo of todos" class="todo">
+				<input type="checkbox">
+				<input type="text" class="todoEditable" (keyup.enter)="updateTodo(todo, $event)" value="{{todo.title}}">
+				<button md-raised-button color="primary" (click) ="removeTodo(todo)"> X </button>
+			</section>
+		</div>
+	</section>
+</div>

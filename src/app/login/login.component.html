@@ -1,0 +1,18 @@
+<div class ="dialogContainer">
+	<md-card class ="dialogCard">
+		<md-card-title>Log In</md-card-title>
+
+		<md-card-content class ="dialogForm" id ="loginForm">
+			<md-input placeholder="Email" [(ngModel)]="email"></md-input>
+			<md-input placeholder="Password" type="password" [(ngModel)]="password"></md-input>
+		</md-card-content>
+
+		<md-card-actions class ="dialogActions">
+			<button md-raised-button color="primary" (click)="login()">Login</button>
+		</md-card-actions>
+
+		<div class ="dialogError">
+			{{loginError}}
+		</div>
+	</md-card>
+</div>
