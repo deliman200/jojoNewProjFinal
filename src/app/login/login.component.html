@@ -1,14 +1,23 @@
 <div class ="dialogContainer">
 	<md-card class ="dialogCard">
 		<md-card-title>Log In</md-card-title>
-
 		<md-card-content class ="dialogForm" id ="loginForm">
-			<md-input placeholder="Email" [(ngModel)]="email"></md-input>
-			<md-input placeholder="Password" type="password" [(ngModel)]="password"></md-input>
+			<md-input placeholder="Email" [(ngModel)]="email" email dividerColor="{{ !email.valid ? 'warn' : 'primary' }}">
+				<md-hint [hidden]="email.pristine || email.valid">
+	              <span [hidden]="email.errors?.required || !email.errors?.email">This doesn't appear to be a valid email address.</span>
+	              <span [hidden]="!email.errors?.required">Email address is required.</span>
+	            </md-hint>
+			</md-input>
+			<md-input placeholder="Password" type="password" [(ngModel)]="password" password dividerColor="{{ !email.valid ? 'warn' : 'primary' }}">
+				<md-hint [hidden]="password.pristine || password.valid">
+	              <span [hidden]="password.errors?.required || !password.errors?.password">This doesn't appear to be a valid password address.</span>
+	              <span [hidden]="!password.errors?.required">password is required.</span>
+	            </md-hint>
+			</md-input>
 		</md-card-content>
 
 		<md-card-actions class ="dialogActions">
-			<button md-raised-button color="primary" (click)="login()">Login</button>
+			<button md-raised-button color='accent' (click)="login()">Login</button>
 		</md-card-actions>
 
 		<div class ="dialogError">

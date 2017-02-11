@@ -1,7 +1,9 @@
 <md-toolbar color="primary" class ="navbar">
 	<span (click)="navigate('')" id ="toolbarTitle" style ="width:90%;">{{title}}</span>
-	<button (click)="navigate('login')" class ="mainBtn">Login</button>
+	<button md-raised-button color="accent" (click)="navigate('login')" class ="mainBtn">Login</button>
 </md-toolbar>
 
 
-<router-outlet></router-outlet>
+<div class ="container">
+	<router-outlet></router-outlet>
+</div>

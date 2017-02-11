@@ -1,0 +1,27 @@
+.dialogContainer{
+	margin:20px auto 0 auto;
+	width:50%;
+}
+
+md-card-title{
+	text-align: center;
+}
+
+md-card-content{
+	margin:0 auto 10px auto;
+	text-align: center;
+}
+
+md-card-content md-input{
+	width:100%;
+}
+
+md-card-actions, button{
+	margin:0 auto;
+	text-align: center;
+}
+
+.dialogError{
+	text-align: center;
+	color:red;
+}

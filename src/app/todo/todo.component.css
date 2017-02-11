@@ -1,0 +1,28 @@
+h1{
+	text-align: center;
+}
+
+md-input{
+	width:100%;
+}
+
+.todosList{
+	margin:20px auto 0 auto;
+	width:50%;
+}
+
+.todosList input{
+	width:74%;
+	height:30px;
+	font-size:20px;
+	text-indent: 10px;
+	margin-right:5px;
+}
+
+.todosList section{
+	margin-bottom: 15px;
+}
+
+md-checkbox.md-checked[disabled].red .md-icon {
+  background-color: rgba(255, 0, 0, 0.26);
+}
