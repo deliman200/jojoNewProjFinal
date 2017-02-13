@@ -1,15 +1,21 @@
-<h1>Todo List</h1>
-<div class ="todosContainer">
-		<md-input class ="newTodo" placeholder="What need to be done?" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()" autofocus></md-input>
-		<section class ="todosBody">
-			<div class ="todosList" layout="column" layout-xs="column" color="primary">
-				<md-card >
-					<section *ngFor="let todo of todos" class="todo">
-						<md-checkbox></md-checkbox>
-						<input type="text" class="todoEditable" (keyup.enter)="updateTodo(todo, $event)" value="{{todo.title}}">
-						<button md-mini-fab  (click) ="removeTodo(todo)"> X </button>
-					</section>
-				</md-card>
-			</div>
-		</section>	
-</div>
+<section class ="todoapp">
+	<div class ="todosContainer">
+	<header class ="header">
+		<h1>Todo List</h1>
+		<input class ="newTodo" placeholder="What need to be done?" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()" autofocus>
+	</header>
+
+	<section class ="todosBody" *ngIf="todos.length > 0">
+		<ul class ="todosList">
+			<li *ngFor="let todo of todos" [class.completed]="todo.complete">
+				<input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
+				<input type="text" class="todoEditable" (keyup.enter)="updateTodo(todo, $event)" value="{{todo.title}}">
+				<button class="destroy"  (click) ="removeTodo(todo)"> X </button>	
+			</li>
+		</ul>
+	</section>	
+	<footer class="footer" *ngIf="todos.length > 0">
+	    <span class="todo-count"><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
+	  </footer>
+	</div>
+</section>

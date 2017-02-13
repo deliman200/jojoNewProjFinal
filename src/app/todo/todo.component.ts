@@ -8,28 +8,24 @@ import { Todo } from '../shared/todo.model';
   styleUrls: ['./todo.component.css'],
   providers: [TodoService]
 })
-export class TodoComponent implements OnInit {
-
-	todos: Todo[] = [];
+export class TodoComponent {
 	newTodo: Todo = new Todo();
   constructor(private todoService: TodoService){}
 
-  ngOnInit() {
-  	this.todos = this.todoService.get(); 
-  }
-
   addTodo() {
-  	this.todoService.post(this.newTodo);
-  	this.newTodo = new Todo();
+    this.todoService.addTodo(this.newTodo);
+    this.newTodo = new Todo();
   }
 
-
-  updateTodo(todo: Todo, $event) {
-  	todo.title = $event.target.value;
-  	this.todoService.put(todo);
+  toggleTodoComplete(todo) {
+    this.todoService.toggleTodoComplete(todo);
   }
 
-  removeTodo(todo: Todo){
-  	 this.todoService.remove(todo);
+  removeTodo(todo) {
+    this.todoService.deleteTodoById(todo.id);
+  }
+
+  get todos() {
+    return this.todoService.getAllTodos();
   }
 }
